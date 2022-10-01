@@ -1,0 +1,81 @@
+{
+    "status": "success",
+    "data": [
+        {
+            "id": "3236951",
+            "term": "spiderman",
+            "search_freq_rank": "28",
+            "hacim": "988459",
+            "adet": "54215",
+            "tiklama": "36.97",
+            "donusum": "33.49",
+            "products": [
+                {
+                    "tarih": "2022-01-30",
+                    "asin": "B073HKJ1KZ",
+                    "title": "Spider-Man: Homecoming",
+                    "click_share": 17.44,
+                    "conversion_share": 16.65,
+                    "adet": 9027,
+                    "topadet": 17089
+                },
+                {
+                    "tarih": "2022-01-30",
+                    "asin": "B07TP5M5TB",
+                    "title": "Spider-Man: Far From Home",
+                    "click_share": 11.83,
+                    "conversion_share": 15.52,
+                    "adet": 8414,
+                    "topadet": 24800
+                },
+                {
+                    "tarih": "2022-01-30",
+                    "asin": "B09NMFZYKR",
+                    "title": "Spider-Man: No Way Home [Ultra HD]",
+                    "click_share": 7.7,
+                    "conversion_share": 1.32,
+                    "adet": 716,
+                    "topadet": 1649
+                }
+            ]
+        },
+        {
+            "id": "3236953",
+            "term": "iphone 12 pro max case",
+            "search_freq_rank": "29",
+            "hacim": "970640",
+            "adet": "43817",
+            "tiklama": "15.92",
+            "donusum": "18.53",
+            "products": [
+                {
+                    "tarih": "2022-01-30",
+                    "asin": "B08CZL5NX7",
+                    "title": "TORRAS Shockproof Compatible for iPhone 12 Pro Max Case, Military Grade Drop Protection Translucent Matte Case Compatible for iPhone 12 Pro Max Phone Case, Guardian Series, Black",
+                    "click_share": 9.27,
+                    "conversion_share": 11.26,
+                    "adet": 4934,
+                    "topadet": 7336
+                },
+                {
+                    "tarih": "2022-01-30",
+                    "asin": "B0967JPP5D",
+                    "title": "CASEKOO Crystal Clear Designed for iPhone 12 Pro Max Case, [Not Yellowing] [Military Grade Drop Tested] Shockproof Protective Phone Case Slim Thin Cover 5G 6.7 inch 2020, Black",
+                    "click_share": 3.45,
+                    "conversion_share": 4.47,
+                    "adet": 1959,
+                    "topadet": 3101
+                },
+                {
+                    "tarih": "2022-01-30",
+                    "asin": "B082BCXK81",
+                    "title": "ORIbox Case Compatible with iPhone 11, Heavy Duty Shockproof Anti-Fall Clear case Crystal Clear",
+                    "click_share": 3.2,
+                    "conversion_share": 2.8,
+                    "adet": 1227,
+                    "topadet": 2070
+                }
+            ]
+        }
+    ]
+}

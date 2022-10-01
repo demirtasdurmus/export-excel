@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <center>
+        <h1 style="color:green">GeeksForGeeks</h1>
+        <h2>Table to CSV converter</h2>
+        <table border="1" cellspacing="0" cellpadding="10">
+            <tr>
+                <th>Name</th>
+                <th>age</th>
+                <th>place</th>
+            </tr>
+            <tr>
+                <td>Laxman</td>
+                <td>19</td>
+                <td>Hyderabad</td>
+            </tr>
+            <tr>
+                <td>Dhoni</td>
+                <td>22</td>
+                <td>Ranchi</td>
+            </tr>
+            <tr>
+                <td>Kohli</td>
+                <td>25</td>
+                <td>Delhi</td>
+            </tr>
+        </table>
+        <br><br>
+        <button type="button" onclick="tableToCSV()">
+            download CSV
+        </button>
+    </center>
+
+    <script type="text/javascript">
+
+        const data = [
+            {
+                "id": "3236951",
+                "term": "spiderman",
+                "search_freq_rank": "28",
+                "hacim": "988459",
+                "adet": "54215",
+                "tiklama": "36.97",
+                "donusum": "33.49",
+                "products": [
+                    {
+                        "tarih": "2022-01-30",
+                        "asin": "B073HKJ1KZ",
+                        "title": "Spider-Man: Homecoming",
+                        "click_share": 17.44,
+                        "conversion_share": 16.65,
+                        "adet": 9027,
+                        "topadet": 17089
+                    },
+                    {
+                        "tarih": "2022-01-30",
+                        "asin": "B07TP5M5TB",
+                        "title": "Spider-Man: Far From Home",
+                        "click_share": 11.83,
+                        "conversion_share": 15.52,
+                        "adet": 8414,
+                        "topadet": 24800
+                    },
+                    {
+                        "tarih": "2022-01-30",
+                        "asin": "B09NMFZYKR",
+                        "title": "Spider-Man: No Way Home [Ultra HD]",
+                        "click_share": 7.7,
+                        "conversion_share": 1.32,
+                        "adet": 716,
+                        "topadet": 1649
+                    }
+                ]
+            },
+            {
+                "id": "3236953",
+                "term": "iphone 12 pro max case",
+                "search_freq_rank": "29",
+                "hacim": "970640",
+                "adet": "43817",
+                "tiklama": "15.92",
+                "donusum": "18.53",
+                "products": [
+                    {
+                        "tarih": "2022-01-30",
+                        "asin": "B08CZL5NX7",
+                        "title": "TORRAS Shockproof Compatible for iPhone 12 Pro Max Case,",
+                        "click_share": 9.27,
+                        "conversion_share": 11.26,
+                        "adet": 4934,
+                        "topadet": 7336
+                    },
+                    {
+                        "tarih": "2022-01-30",
+                        "asin": "B0967JPP5D",
+                        "title": "CASEKOO Crystal Clear Designed for iPhone 12 Pro Max Case",
+                        "click_share": 3.45,
+                        "conversion_share": 4.47,
+                        "adet": 1959,
+                        "topadet": 3101
+                    },
+                    {
+                        "tarih": "2022-01-30",
+                        "asin": "B082BCXK81",
+                        "title": "ORIbox Case Compatible with iPhone 11, Heavy Duty",
+                        "click_share": 3.2,
+                        "conversion_share": 2.8,
+                        "adet": 1227,
+                        "topadet": 2070
+                    }
+                ]
+            }
+        ]
+
+        //const parsed = JSON.parse(data)
+
+        console.log(data[0].id)
+
+        function tableToCSV() {
+
+            // Variable to store the final csv data
+            var csv_data = [];
+
+            // Get each row data
+            var rows = document.getElementsByTagName('tr');
+            for (var i = 0; i < rows.length; i++) {
+
+                // Get each column data
+                var cols = rows[i].querySelectorAll('td,th');
+
+                // Stores each csv row data
+                var csvrow = [];
+                for (var j = 0; j < cols.length; j++) {
+
+                    // Get the text data of each cell
+                    // of a row and push it to csvrow
+                    csvrow.push(cols[j].innerHTML);
+                }
+                console.log("csv row", csvrow)
+                // Combine each column value with comma
+                csv_data.push(csvrow.join(","));
+            }
+            console.log("before v", csv_data)
+            // Combine each row data with new line character
+            csv_data = csv_data.join('\n');
+            console.log("last v", [csv_data])
+            // Call this function to download csv file
+            downloadCSVFile(csv_data);
+
+        }
+
+        var dataArr = ['SİRA,KELİME,HACİM,SATİŞ,TIKLANMA,DÖNÜŞÜM']
+        for (let i = 0; i < data.length; i++) {
+            var lineKeyword = []
+            var sira = i + 1;
+            lineKeyword.push(sira);
+            var keyword = data[i].term;
+            lineKeyword.push(keyword);
+            var hacim = data[i].hacim;
+            lineKeyword.push(hacim);
+            var satis = data[i].adet;
+            lineKeyword.push(satis);
+            var tiklama = data[i].tiklama;
+            lineKeyword.push(tiklama);
+            var donusum = data[i].donusum;
+            lineKeyword.push(donusum);
+
+            dataArr.push(lineKeyword.join(","));
+
+            for (let j = 0; j < data[i].products.length; j++) {
+                var lineAsin = [];
+                var sira = "|-->";
+                lineAsin.push(sira);
+                var asin = `ASIN:${data[i].products[j].asin}`;
+                lineAsin.push(asin);
+                var hacim = `---->`;
+                lineAsin.push(hacim);
+                var satis = data[i].products[j].adet;
+                lineAsin.push(satis);
+                var tiklama = data[i].products[j].click_share;
+                lineAsin.push(tiklama);
+                var donusum = data[i].products[j].conversion_share;
+                lineAsin.push(donusum);
+
+                dataArr.push(lineAsin.join(","));
+            }
+            dataArr.push("");
+        }
+
+        console.log("dataArr", dataArr)
+
+        var last = dataArr.join('\n')
+
+        console.log("last", [last])
+
+
+        function downloadCSVFile(csv_data) {
+
+            // Create CSV file object and feed
+            // our csv_data into it
+            CSVFile = new Blob([last], {
+                type: "text/csv"
+            });
+
+            // Create to temporary link to initiate
+            // download process
+            var temp_link = document.createElement('a');
+
+            // Download csv file
+            temp_link.download = "emparazon_keyword.csv";
+            var url = window.URL.createObjectURL(CSVFile);
+            temp_link.href = url;
+
+            // This link should not be displayed
+            temp_link.style.display = "none";
+            document.body.appendChild(temp_link);
+
+            // Automatically click the link to
+            // trigger download
+            temp_link.click();
+            document.body.removeChild(temp_link);
+        }
+    </script>
+</body>
+
+</html>
